@@ -41,7 +41,7 @@ const validarExistencia = (req, res) => {
 
     // Consultar la cantidad disponible en el inventario
     connection.query(
-        "SELECT cantidad_disponible FROM inventario WHERE producto_id = ?",
+        "SELECT cantidad_disponible FROM galletasStock WHERE receta_id = ?",
         [Receta_id],
         (error, results) => {
             if (error) {
