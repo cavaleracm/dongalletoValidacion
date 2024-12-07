@@ -15,7 +15,6 @@ const validarExistencia = (req, res) => {
 
     // Convertir la cantidad a "sueltas" según el tipo de venta
     let cantidadEnSueltas;
-
     switch (TipoVenta.toLowerCase()) {
         case "precio":
             if (!PrecioPorUnidad || PrecioPorUnidad <= 0) {
@@ -58,10 +57,10 @@ const validarExistencia = (req, res) => {
 
             // Comparar cantidad solicitada con la disponible
             if (cantidadEnSueltas <= cantidadDisponible) {
-                // Regresar el mensaje con la cantidad disponible
+                // Regresar el mensaje con la cantidad vendida (en sueltas)
                 res.status(200).json({
                     message: "Suficiente inventario disponible.",
-                    cantidadDisponible: cantidadDisponible  
+                    cantidadVendida: cantidadEnSueltas,  // Esta es la cantidad de galletas que se van a vender
                 });
             } else {
                 res.status(500).json({
