@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-const { connection } = require("../config.db");
+const { connection } = require("../config.bd");
 
 // Cargar las variables de entorno
 dotenv.config();
