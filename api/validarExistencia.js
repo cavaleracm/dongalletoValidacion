@@ -58,7 +58,11 @@ const validarExistencia = (req, res) => {
 
             // Comparar cantidad solicitada con la disponible
             if (cantidadEnSueltas <= cantidadDisponible) {
-                res.status(200).json({ message: "Suficiente inventario disponible." });
+                // Regresar el mensaje con la cantidad disponible
+                res.status(200).json({
+                    message: "Suficiente inventario disponible.",
+                    cantidadDisponible: cantidadDisponible  
+                });
             } else {
                 res.status(500).json({
                     error: "Inventario insuficiente.",
